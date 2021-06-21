@@ -196,7 +196,10 @@ class ProfileScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 15.0,
+                    horizontal: 20.0
+                  ),
                   child: Row(
                     children: <Widget>[
                       CircleAvatar(
@@ -286,7 +289,7 @@ class _AllClassSubjects extends State<ClassSubjects> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                      top: 10.0
+                      top: 5.0
                     ),
                     child: Text(
                       '${classTeacher.className}',

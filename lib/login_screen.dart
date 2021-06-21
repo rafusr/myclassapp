@@ -7,36 +7,38 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffEFF2FB),
-      body: SingleChildScrollView(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: 500.0,
-              decoration: BoxDecoration(
-                color: Color(0xff00AFF5),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                top: 415.0,
-                left: 20.0,
-                right: 20.0
-              ),
-              child: Container(
-                width: double.infinity,
-                height: 200.0,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height/1.5,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20.0)
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: LoginButton(),
+                  color: Color(0xff00AFF5),
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height/1.5 - 100,
+                  left: 20.0,
+                  right: 20.0
+                ),
+                child: Container(
+                  width: double.infinity,
+                  height: 200.0,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20.0)
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: LoginButton(),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

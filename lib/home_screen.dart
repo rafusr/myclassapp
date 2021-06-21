@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:my_class_app/assignment_screen.dart';
@@ -232,7 +233,7 @@ class _HomeClassState extends State<HomeClass> {
             right: 10.0
           ),
           child: Container(
-            width: 120.0,
+            width: 130.0,
             height: 170.0,
             decoration: BoxDecoration(
               color: Colors.white,
@@ -278,7 +279,7 @@ class _HomeClassState extends State<HomeClass> {
                     width: double.infinity,
                     height: 40.0,
                     decoration: BoxDecoration(
-                      color: Color(0xff00AFF5).withOpacity(0.2),
+                      color: Color(0xff00AFF5).withOpacity(0.1),
                       borderRadius: BorderRadius.circular(10.0)
                     ),
                     child: Align(
@@ -491,24 +492,35 @@ class _HomeClassStartedState extends State<HomeClassStarted> {
         ),
         Spacer(),
         classAction == 'Join the class'
-        ? Container(
-          width: MediaQuery.of(context).size.width,
-          height: 40.0,
-          decoration: BoxDecoration(
-            color: Colors.blueAccent,
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          child: Align(
-            alignment: Alignment.center,
-            child: Text(
-              '$classAction',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontFamily: 'Noto_Sans'
+        ? MaterialButton(
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: 40.0,
+            decoration: BoxDecoration(
+              color: Colors.blueAccent,
+              borderRadius: BorderRadius.circular(10.0)
+            ),
+            child: Align(
+              alignment: Alignment.center,
+              child: Text(
+                '$classAction',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontFamily: 'Noto_Sans'
+                )
               )
-            )
+            ),
           ),
+          onPressed: () {
+            Fluttertoast.showToast(
+              msg: 'Join The Class',
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1
+            );
+          },
         )
         : Container(
           width: MediaQuery.of(context).size.width,
